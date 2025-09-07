@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Payroll System - Login/Signup</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+</head>
+
+<body class="auth-body">
+  <div class="auth-wrapper">
+    <!-- Left Banner -->
+    <div class="auth-banner">
+      <h1>Payroll System</h1>
+      <p>Manage Payroll, Salary Slips & Expenses with Ease</p>
+    </div>
+
+    <!-- Right Side Forms -->
+    <div class="auth-form-container">
+      <div class="auth-toggle">
+        <button type="button" id="loginBtn" class="toggle-btn active" onclick="showLogin()">Login</button>
+        <button type="button" id="signupBtn" class="toggle-btn" onclick="showSignup()">Signup</button>
+      </div>
+      <form id="loginForm" autocomplete="off">
+  <h2>Login</h2>
+  <input id="username" placeholder="Username" required autocomplete="off">
+  <input id="password" placeholder="Password" type="password" required autocomplete="off">
+  <select id="lrole">
+    <option value="admin">Admin</option>
+    <option value="employee">Employee</option>
+  </select>
+  <button type="button" onclick="login()">Login</button>
+</form>
+
+<form id="signupForm" style="display:none;" autocomplete="off">
+  <h2>Signup</h2>
+  <input id="susername" placeholder="Username" autocomplete="off">
+  <input id="spassword" placeholder="Password" type="password" autocomplete="off">
+  <select id="srole">
+    <option value="employee">Employee</option>
+  </select>
+  <button type="button" onclick="signup()">Signup</button>
+</form>
+
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+  <!-- 🔹 Extra script to clear forms on refresh -->
+  <script>
+    window.addEventListener("pageshow", function () {
+      // Clear login form
+      if (document.getElementById("loginForm")) {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        if (document.getElementById("lrole")) {
+          document.getElementById("lrole").selectedIndex = 0;
+        }
+      }
+
+      // Clear signup form
+      if (document.getElementById("signupForm")) {
+        document.getElementById("susername").value = "";
+        document.getElementById("spassword").value = "";
+        if (document.getElementById("srole")) {
+          document.getElementById("srole").selectedIndex = 0;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

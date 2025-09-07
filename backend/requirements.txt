@@ -1,0 +1,6 @@
+Flask
+flask-cors
+passlib[bcrypt]
+python-jose
+mysql-connector-python
+gunicorn
